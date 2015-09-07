@@ -14,5 +14,4 @@ class NullNode
   def right_node
     nil
   end
-
 end

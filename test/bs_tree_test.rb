@@ -20,7 +20,7 @@ class BSTreeTest < Minitest::Test
 
   def test_head_doesnt_change_when_new_nodes_added
     @tree.insert(@data[5]).insert(@data[4]).insert(@data[10])
-    assert_equal 8,  @tree.head.data
+    assert_equal 8, @tree.head.data
   end
 
   def test_can_add_nodes
@@ -107,7 +107,6 @@ class BSTreeTest < Minitest::Test
   def test_can_delete_head_node_and_repair_tree
     @tree.insert(@data[1]).insert(@data[2]).insert(@data[10]).insert(@data[9]).insert(@data[11])
     @tree.delete(8)
-
     assert @tree.head.data
   end
 
@@ -116,6 +115,15 @@ class BSTreeTest < Minitest::Test
 
     @tree.insert(@data[1]).insert(@data[2]).insert(@data[10]).insert(@data[9])
     assert_equal 5, @tree.number_of_leaves
+  end
+
+  def test_can_import_data_from_txt_file
+    tree = BSTree.new
+    tree.import('/Users/Torie/Documents/turing/module_1/projects/binary-search-tree/test/fixtures/data.txt')
+
+    assert_equal '0', tree.head.data
+    assert_equal '1', tree.head.right_node.data
+    assert_equal '2', tree.head.right_node.right_node.data
   end
 
   # test for exporting files?

@@ -8,5 +8,4 @@ class Node
     @left_node = left_node
     @right_node = right_node
   end
-
 end

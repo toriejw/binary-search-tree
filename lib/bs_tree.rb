@@ -106,4 +106,10 @@ class BSTree
       insert(value)
     end
   end
+
+  def output_data
+    handle = File.open("/Users/Torie/Documents/turing/module_1/projects/binary-search-tree/output.txt", "w")
+    handle.write(sort)
+    handle.close
+  end
 end

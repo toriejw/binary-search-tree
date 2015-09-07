@@ -112,4 +112,8 @@ class BSTree
     handle.write(sort)
     handle.close
   end
+
+  def number_of_leaves
+    sort.size
+  end
 end

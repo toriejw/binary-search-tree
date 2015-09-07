@@ -111,6 +111,13 @@ class BSTreeTest < Minitest::Test
     assert @tree.head.data
   end
 
+  def test_knows_how_many_leaves_it_has
+    assert_equal 1, @tree.number_of_leaves
+
+    @tree.insert(@data[1]).insert(@data[2]).insert(@data[10]).insert(@data[9])
+    assert_equal 5, @tree.number_of_leaves
+  end
+
   # test for exporting files?
 
 end

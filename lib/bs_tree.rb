@@ -82,7 +82,6 @@ class BSTree
   def traverse_tree(leaves, node = head)
     traverse_tree(leaves, node.left_node) if node.left_node
     leaves << node.data unless node.data.nil?
-    caller.size
     traverse_tree(leaves, node.right_node) if node.right_node
 
     leaves

@@ -126,6 +126,15 @@ class BSTreeTest < Minitest::Test
     assert_equal '2', tree.head.right_node.right_node.data
   end
 
+  def test_knows_its_height
+    tree = BSTree.new
+    assert_equal 0, tree.height
+    tree.insert(8)
+    assert_equal 1, tree.height
+    tree.insert(2).insert(1).insert(0).insert(9)
+    assert_equal 4, tree.height
+  end
+
   # test for exporting files?
 
 end

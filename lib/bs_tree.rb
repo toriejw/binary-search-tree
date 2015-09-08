@@ -10,7 +10,7 @@ class BSTree
   def insert(data, node = head)
     if head.data.nil?
       self.head = Node.new(data)
-      return
+      return self
     end
 
     if data > node.data
@@ -82,6 +82,7 @@ class BSTree
   def traverse_tree(leaves, node = head)
     traverse_tree(leaves, node.left_node) if node.left_node
     leaves << node.data unless node.data.nil?
+    caller.size
     traverse_tree(leaves, node.right_node) if node.right_node
 
     leaves
@@ -124,5 +125,15 @@ class BSTree
       insert(line.chomp)
     end
     handle.close
+  end
+
+  def height(leaves = [], node = head)
+    return 0 if head.data.nil?
+    values = sort
+    depths = []
+    values.each do |value|
+      depths << depth_of(value)
+    end
+    depths.max
   end
 end
